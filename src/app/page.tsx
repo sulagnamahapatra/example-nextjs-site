@@ -1,113 +1,211 @@
+"use client";
 import Image from "next/image";
+import React, { useState, Suspense } from "react";
+import { BorderBeam } from "@/components/magicui/border-beam";
+import AuroraBackgroundDemo from "./backg";
+import { ContainerScroll } from "../components/ui/container-scroll-animation";
+import { GridShowcase, SpotlightCard, Footer, FooterProps, ThemeProvider, ThemeSwitchProps, Features, FeaturesProps, GridShowcaseProps } from '@lobehub/ui';
+import { MoonStar, Palette, Zap } from 'lucide-react';
+import SparklesText from "@/components/magicui/sparkles-text";
+import BlurFade from "@/components/magicui/blur-fade";
+import IconCloud from "@/components/magicui/icon-cloud";
+import { TextGenerateEffect } from "../components/ui/text-generate-effect";
+import { Trash } from 'lucide-react';
+import { HoveredLink, Menu, MenuItem, ProductItem } from "../components/ui/navbar-menu";
+import { cn } from "@/lib/utils";
+import DotPattern from "@/components/magicui/dot-pattern";
+import { createStyles } from 'antd-style';
+import {
+  TextRevealCard,
+  TextRevealCardDescription,
+  TextRevealCardTitle,
+} from "../components/ui/text-reveal-card";
+import ShineBorder from "@/components/magicui/shine-border";
+import ShinyButton from "@/components/magicui/shiny-button";
+
+const slugs = [
+  "typescript",
+  "javascript",
+  "dart",
+  "java",
+  "react",
+  "flutter",
+  "android",
+  "html5",
+  "css3",
+  "nodedotjs",
+  "express",
+  "nextdotjs",
+  "prisma",
+  "amazonaws",
+  "postgresql",
+  "firebase",
+  "nginx",
+  "vercel",
+  "testinglibrary",
+  "jest",
+  "cypress",
+  "docker",
+  "git",
+  "jira",
+  "github",
+  "gitlab",
+  "visualstudiocode",
+  "androidstudio",
+  "sonarqube",
+  "figma",
+];
+
+const items: FeaturesProps['items'] = [
+  {
+    description:
+      'Provides a simple way to customize default themes, you can change the colors, fonts, breakpoints and everything you need.',
+    icon: Palette,
+    title: 'Themeable',
+  },
+  {
+    description:
+      'voids unnecessary styles props at runtime, making it more performant than other UI libraries.',
+    icon: Zap,
+    title: 'Fast',
+  },
+  {
+    description:
+      'Automatic dark mode recognition, NextUI automatically changes the theme when detects HTML theme prop changes.',
+    icon: MoonStar,
+    title: 'Light & Dark UI',
+  },
+];
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <Suspense fallback={<h1 style={{display: 'flex', justifyContent: 'center'}}>
+    <SparklesText text="Getting there!" />
+    </h1>}>
+      <AuroraBackgroundDemo>
+        <div className="relative w-full flex items-center justify-center">
+          <Navbar className="top-1" />
         </div>
-      </div>
-
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
+        <div className="w-full">
+          <GridShowcase className="w-full text-white">
+            <SparklesText text="The Ultimate Development Studio" />
+            <div style={{margin: '2em', textAlign: 'center'}}>
+            <TextGenerateEffect words={"We build beautiful products with the latest technologies and frameworks. We are a team of passionate developers and designers that love to build amazing products."} />
+            </div>
+            <BlurFade key={`/hero-image.png`} delay={2} inView>
+              <div className="fade-img">
+                <img
+                  className="mb-4 size-full rounded-lg object-contain bg-gradient-to-t from-back-400 to-transparent"
+                  src={`/hero-image.png`}
+                  alt={`Random image`}
+                />
+                <BorderBeam size={350} duration={12} delay={9} />
+              </div>
+            </BlurFade>
+          </GridShowcase>
+        </div>
+        <div className="m-0 py-0 flex flex-col overflow-hidden bg-transparent">
+          <ContainerScroll
+            titleComponent={
+              <>
+                <h1 className="text-4xl font-semibold text-black dark:text-white">
+                  Unleash the power of <br />
+                  <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none">
+                    Scroll Animations
+                  </span>
+                </h1>
+              </>
+            }
+          >
+            <Image
+              src={`/linear.webp`}
+              alt="hero"
+              height={720}
+              width={1400}
+              className="mx-auto rounded-2xl object-cover h-full object-left-top"
+              draggable={false}
+            />
+          </ContainerScroll>
+        </div>
+        <ThemeProvider appearance="dark" themeMode="dark" defaultThemeMode="dark" style={{width: '100vw', display: 'flex', justifyContent: 'center', paddingBottom: '3rem'}}>
+          <Features items={items} style={{paddingBottom: '5rem'}}/>
+        </ThemeProvider>
+        <ShineBorder
+          className="h-fit w-fit bg-transparent pb-20 mb-40"
+          color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
         >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+          <TextRevealCard
+            text="You know the business"
+            revealText="I know the chemistry "
+          >
+            <TextRevealCardTitle>
+              Sometimes, you just need to see it.
+            </TextRevealCardTitle>
+            <TextRevealCardDescription>
+              Hover over the card to reveal the hidden text ;)
+            </TextRevealCardDescription>
+          </TextRevealCard>
+        </ShineBorder>
+        <ThemeProvider appearance="dark" themeMode="dark" defaultThemeMode="dark" style={{width: '100vw'}}>
+          <Footer bottom="Copyright © 2024" columns={[]} />
+        </ThemeProvider>
+      </AuroraBackgroundDemo>
+    </Suspense>
+  );
+}
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+function Navbar({ className }: { className?: string }) {
+  const [active, setActive] = useState<string | null>(null);
+  return (
+    <div
+      className={cn("navbar", className)}
+    >
+      <Menu setActive={setActive}>
+        <MenuItem setActive={setActive} active={active} item="Services">
+          <div className="flex flex-col space-y-4 text-sm">
+            <HoveredLink href="/web-dev">Web Development</HoveredLink>
+            <HoveredLink href="/interface-design">Interface Design</HoveredLink>
+            <HoveredLink href="/seo">Search Engine Optimization</HoveredLink>
+            <HoveredLink href="/branding">Branding</HoveredLink>
+          </div>
+        </MenuItem>
+        <MenuItem setActive={setActive} active={active} item="Products">
+          <div className="  text-sm grid grid-cols-2 gap-10 p-4">
+            <ProductItem
+              title="Algochurn"
+              href="https://algochurn.com"
+              src="https://assets.aceternity.com/demos/algochurn.webp"
+              description="Prepare for tech interviews like never before."
+            />
+            <ProductItem
+              title="Tailwind Master Kit"
+              href="https://tailwindmasterkit.com"
+              src="https://assets.aceternity.com/demos/tailwindmasterkit.webp"
+              description="Production ready Tailwind css components for your next project"
+            />
+            <ProductItem
+              title="Moonbeam"
+              href="https://gomoonbeam.com"
+              src="https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.51.31%E2%80%AFPM.png"
+              description="Never write from scratch again. Go from idea to blog in minutes."
+            />
+            <ProductItem
+              title="Rogue"
+              href="https://userogue.com"
+              src="https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.47.07%E2%80%AFPM.png"
+              description="Respond to government RFPs, RFIs and RFQs 10x faster using AI"
+            />
+          </div>
+        </MenuItem>
+        <MenuItem setActive={setActive} active={active} item="Pricing">
+          <div className="flex flex-col space-y-4 text-sm">
+            <HoveredLink href="/hobby">Hobby</HoveredLink>
+            <HoveredLink href="/individual">Individual</HoveredLink>
+            <HoveredLink href="/team">Team</HoveredLink>
+            <HoveredLink href="/enterprise">Enterprise</HoveredLink>
+          </div>
+        </MenuItem>
+      </Menu>
+    </div>
   );
 }
