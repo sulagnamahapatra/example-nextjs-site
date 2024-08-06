@@ -1,27 +1,22 @@
 "use client";
 import Image from "next/image";
 import React, { useState, Suspense } from "react";
-import { BorderBeam } from "@/components/magicui/border-beam";
+import { BorderBeam } from "../components/magicui/border-beam";
 import AuroraBackgroundDemo from "./backg";
 import { ContainerScroll } from "../components/ui/container-scroll-animation";
 import { GridShowcase, SpotlightCard, Footer, FooterProps, ThemeProvider, ThemeSwitchProps, Features, FeaturesProps, GridShowcaseProps } from '@lobehub/ui';
 import { MoonStar, Palette, Zap } from 'lucide-react';
-import SparklesText from "@/components/magicui/sparkles-text";
-import BlurFade from "@/components/magicui/blur-fade";
-import IconCloud from "@/components/magicui/icon-cloud";
+import SparklesText from "../components/magicui/sparkles-text";
+import BlurFade from "../components/magicui/blur-fade";
 import { TextGenerateEffect } from "../components/ui/text-generate-effect";
-import { Trash } from 'lucide-react';
 import { HoveredLink, Menu, MenuItem, ProductItem } from "../components/ui/navbar-menu";
-import { cn } from "@/lib/utils";
-import DotPattern from "@/components/magicui/dot-pattern";
-import { createStyles } from 'antd-style';
+import { cn } from "../lib/utils";
 import {
   TextRevealCard,
   TextRevealCardDescription,
   TextRevealCardTitle,
 } from "../components/ui/text-reveal-card";
-import ShineBorder from "@/components/magicui/shine-border";
-import ShinyButton from "@/components/magicui/shiny-button";
+import ShineBorder from "../components/magicui/shine-border";
 
 const slugs = [
   "typescript",
