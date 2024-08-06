@@ -51,7 +51,7 @@ export const TextGenerateEffect = ({
 
   return (
     <div className={cn("w-screen", className)}>
-      <div className="mt-4 overflow-hidden">
+      <div className="m-0 overflow-hidden">
         <div className="text-off-white text-responsive-para leading-snug tracking-wide">
           {renderWords()}
         </div>
