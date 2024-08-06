@@ -45,7 +45,7 @@ export default function Home() {
     <SparklesText text="Getting there!" />
     </h1>}>
       <AuroraBackgroundDemo>
-        <div className="relative w-full flex items-center justify-center">
+        <div className="relative w-full mb-4 flex items-center justify-center">
           <Navbar className="top-1" />
         </div>
         <div className="w-full">
